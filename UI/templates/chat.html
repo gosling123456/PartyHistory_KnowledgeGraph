@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+     <title>Chat</title>
+     <meta charset="UTF-8">
+
+</head>
+<body>
+
+    <h1>聊天页面<br /></h1>
+
+    <div id="chat">
+        <ul id="messages"></ul>
+        <form action="" method="post" onsubmit="return sendMessage(event)">
+            <input id="inputMessage" type="text" autocomplete="off"  placeholder="输入消息" />
+            <!--<input type="submit" value="发送" />-->
+            <button type="submit">提交</button>
+        </form>
+    </div>
+
+    <style>
+	body {
+			background-image: url('../data/2.jpg');
+			background-size: cover;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+		}
+
+    </style>
+
+    <script>
+        function sendMessage(event) {
+            event.preventDefault();
+            var messageInput = document.getElementById('inputMessage');
+            var message = messageInput.value;
+            messageInput.value = '';
+
+            var li = document.createElement('li');
+            li.innerHTML = '我: ' + message;
+            document.getElementById('messages').appendChild(li);
+
+            // 使用AJAX发送消息到后端
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/send', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var li = document.createElement('li');
+                    li.innerHTML = '后台: ' + xhr.responseText;
+                    document.getElementById('messages').appendChild(li);
+                }
+            };
+            xhr.send('message=' + encodeURIComponent(message));
+
+            return false;
+        }
+    </script>
+
+
+</body>
+</html>

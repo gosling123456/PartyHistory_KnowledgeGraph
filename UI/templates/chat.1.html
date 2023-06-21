@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+     <title>Chat</title>
+     <meta charset="UTF-8">
+
+</head>
+<body>
+
+    <div class="main">
+        <div class="chat">
+            <h1>党史任务学习<br /></h1>
+            <h1>第十四组<br /></h1>
+        </div>
+        <div class="eva">
+            <ul id="messages"></ul>
+            <form action="/chat.3.html" method="POST" class="parent">
+                <input id="message" type="text"  name="message" placeholder="输入消息" >
+                <button type="submit">提交</button>
+            </form>
+        </div>
+    </div>
+
+
+    <style>
+    *{
+	    margin:0;
+	    padding:0;
+	}
+	body{
+			background-image: url('../static/2.jpg');
+			background-size: cover;
+		}
+    .chat h1{
+            width:100%;
+            text-align:center;
+            line-height:100px;
+            height:100px;
+            font-size:60pt;
+        }
+    .chat form{
+            width:100%;
+            text-align:center;
+
+        }
+    .parent {
+                width: 100%;
+                position: relative;
+                margin-left:50px;
+                top:160px;
+            }
+
+    .parent>input:first-of-type {
+                /*输入框高度设置为40px, border占据2px，总高度为42px*/
+                width: 380px;
+                height: 40px;
+                border: 1px solid black;
+                placeholder: 16px;
+                outline: none;
+                padding-left: 10px;
+            }
+    .parent>input:first-of-type:focus {
+                border: 1px solid #317ef3;
+                padding-left: 10px;
+            }
+    .parent>button:last-of-type {
+                /*button按钮border并不占据外围大小，设置高度42px*/
+                width: 100px;
+                height: 42px;
+                position: absolute;
+                background: #317ef3;
+                border: 1px solid #317ef3;
+                color: #fff;
+                font-size: 16px;
+                outline: none;
+            }
+   .eva {
+        /*width:600px;
+        height:400px;
+        background:white;*/
+        margin:0px 500px; /* auto;
+       border-radius:10px;*/
+    }
+    </style>
+
+    <script>
+
+    </script>
+
+
+</body>
+</html>
